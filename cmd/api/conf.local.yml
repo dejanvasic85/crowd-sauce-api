@@ -1,7 +1,7 @@
 database:
   log_queries: true
   timeout_seconds: 5
-  psn: postgres://postgres@localhost:5432/matchday
+  psn: postgres://postgres@localhost:54320/matchday?sslmode=disable
 
 server:
   port: :9090
@@ -10,7 +10,6 @@ server:
   write_timeout_seconds: 5
 
 auth:
-  secret: jwtrealm # Change this value
   clientID: comingSoon
   signing_algorithm: HS256
 
