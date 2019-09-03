@@ -1,0 +1,18 @@
+database:
+  log_queries: true
+  timeout_seconds: 5
+  psn: postgres://postgres@localhost:5432/matchday
+
+server:
+  port: :9090
+  debug: true
+  read_timeout_seconds: 10
+  write_timeout_seconds: 5
+
+auth:
+  secret: jwtrealm # Change this value
+  clientID: comingSoon
+  signing_algorithm: HS256
+
+application:
+  swagger_ui_path: assets/swaggerui
