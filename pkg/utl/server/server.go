@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"time"
 
-	// "github.com/go-playground/validator"
-	// "github.com/labstack/echo/middleware"
+	"github.com/go-playground/validator"
+	"github.com/labstack/echo/middleware"
 	"github.com/labstack/echo"
 )
 
@@ -23,14 +23,14 @@ type Config struct {
 func New() *echo.Echo {
 	e := echo.New()
 	// e.Use( logger, security, cors, headers etc... ) 
-
+	e.Use(middleware.Logger(), middleware.Recover())
 	e.GET("/health", healthCheck)
 
-	// e.Validator = &CustomValidator{V: validator.New()}
-	// custErr := &customErrHandler{e: e}
-	// e.HTTPErrorHandler = custErr.handler
+	e.Validator = &CustomValidator{V: validator.New()}
+	custErr := &customErrHandler{e: e}
+	e.HTTPErrorHandler = custErr.handler
 
-	// e.Binder =  &CustomBinder{b: &echo.DefaultBinder{}}
+	e.Binder =  &CustomBinder{b: &echo.DefaultBinder{}}
 
 	return e
 }
