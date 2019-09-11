@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/dejanvasic85/matchday-api/pkg/utl/config"
 	"github.com/dejanvasic85/matchday-api/pkg/utl/database"
+	"github.com/dejanvasic85/matchday-api/pkg/utl/server"
 )
 
 func Start(cfg *config.Configuration) error {
@@ -12,6 +13,15 @@ func Start(cfg *config.Configuration) error {
 	if err != nil {
 		return err
 	}
+
+	e := server.New()
+
+	server.Start(e, &server.Config{
+		Port:                cfg.Server.Port,
+		ReadTimeoutSeconds:  cfg.Server.ReadTimeout,
+		WriteTimeoutSeconds: cfg.Server.WriteTimeout,
+		Debug:               cfg.Server.Debug,
+	})
 
 	return nil
 }
