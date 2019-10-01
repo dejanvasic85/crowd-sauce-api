@@ -13,6 +13,7 @@ require (
 	github.com/labstack/gommon v0.3.0 // indirect
 	github.com/leodido/go-urn v1.1.0 // indirect
 	github.com/lib/pq v1.2.0
+	github.com/ribice/gorsk v2.1.0+incompatible // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/yaml.v2 v2.2.2
 	mellium.im/sasl v0.2.1 // indirect

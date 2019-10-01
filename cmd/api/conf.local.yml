@@ -1,7 +1,7 @@
 database:
   log_queries: true
   timeout_seconds: 5
-  psn: postgres://postgres@localhost:54320/matchday?sslmode=disable
+  psn: postgres://postgres@localhost:5432/matchday?sslmode=disable
 
 server:
   port: :9090
